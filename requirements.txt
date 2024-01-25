@@ -1,4 +1,4 @@
-paddlepaddle
+paddlepaddle==2.4.*
 paddleocr
 torch==2.0.0
 torchvision==0.15.1
