@@ -9,6 +9,8 @@ from model import ALPR
 my_model = ALPR()
 
 st.title('License Plate Recognition')
+st.write('Upload an image and the model will detect and read the license plate on UFPR-ALPR Dataset preferably testing set.')
+st.write('Made by: [Andrew Willy](https://github.com/Sebercheres/licence-plate-recognition)')
 
 # Image uploader
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
