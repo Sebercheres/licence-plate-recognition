@@ -2,12 +2,18 @@ from paddleocr import PaddleOCR
 from ultralytics import YOLO
 import cv2
 import numpy as np
+import paddle
+paddle.set_device('cpu')
 
 
 class ALPR():
     def __init__(self):
         self.model_detect = YOLO('./models/license_plate_detector.pt')
-        self.model_recog = PaddleOCR(use_angle_cls=False, det=False, lang='en', use_gpu=False, ocr_version='PP-OCRv3', vis_font_path='./simfang.ttf', rec_char_dict_path='./plate_dict.txt',  rec_model_dir='./models/plate_rec/', show_log=False)
+        self.model_recog = PaddleOCR(use_angle_cls=False, det=False, lang='en',
+                                     ocr_version='PP-OCRv3', vis_font_path='./simfang.ttf', 
+                                     rec_char_dict_path='./plate_dict.txt',  
+                                     rec_model_dir='./models/plate_rec/', det_model_dir='models/en_PP-OCRv3_det_infer',
+                                     show_log=False, cls_model_dir='./models/ch_ppocr_mobile_v2.0_cls_infer')
     
     def should_flip_colors(self, image):
         # Convert the image to grayscale
