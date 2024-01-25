@@ -60,11 +60,3 @@ class ALPR():
         # Return bounding box coordinates, cropped image, and OCR result
         return (x1, y1, x2, y2), img_crop, ocr_result
     
-def main():
-    alpr = ALPR()
-    image = cv2.imread('../../dataset/all_splitted/test/images/track0001[04].png')
-    bbox, img_crop, ocr_result = alpr.forward(image)
-    print(bbox)
-    print(ocr_result)
-
-main()
